@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaViBlog", "HaViBlog\HaViBlog.csproj", "{2EC0C578-08FF-4B29-88C7-D3BA9F667B9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EC0C578-08FF-4B29-88C7-D3BA9F667B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC0C578-08FF-4B29-88C7-D3BA9F667B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC0C578-08FF-4B29-88C7-D3BA9F667B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC0C578-08FF-4B29-88C7-D3BA9F667B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F3E5D16-A10E-4B7C-B361-7565290F58E1}
+	EndGlobalSection
+EndGlobal
