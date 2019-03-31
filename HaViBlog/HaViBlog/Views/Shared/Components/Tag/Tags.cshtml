@@ -1,0 +1,7 @@
+﻿@model IEnumerable<HaViBlog.Service.ViewModels.TagViewModel>
+@{
+    foreach (var item in Model)
+    {
+        <li class="list-inline-item"><a href="#" class="tag">#@item.TagName</a></li>
+    }
+}

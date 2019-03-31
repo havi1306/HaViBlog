@@ -7,8 +7,20 @@
 
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\HaVi.Data\HaViBlog.Data.csproj" />
+    <ProjectReference Include="..\HaVi.Service\HaViBlog.Service.csproj" />
+    <ProjectReference Include="..\HaViBlog.Data.EF\HaViBlog.Data.EF.csproj" />
+    <ProjectReference Include="..\HaViBlog.Infrastructure\HaViBlog.Infrastructure.csproj" />
+    <ProjectReference Include="..\HaViBlog.Utilities\HaViBlog.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using HaViBlog.Data;
+using HaViBlog.Infrastructure.Interface;
+using HaViBlog.Service.AutoMapper;
+using HaViBlog.Service.Services;
+using HaViBlog.Service.ServicesImplementation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,9 +32,27 @@ namespace HaViBlog
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            // autoMapper
+            // autoMapper
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile(new DomainToViewModelMappingProfile());
+                cfg.AddProfile(new ViewModelToDomainMappingProfile());
+            });
+            services.AddAutoMapper();
 
-
+            services.AddDbContext<AppDbContext>(db => db.UseSqlServer(Configuration.GetConnectionString("myconnect")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Dependencies injection
+            services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
+            services.AddTransient(typeof(IReadRepository<>), typeof(ReadEFRepository<>));
+            services.AddTransient(typeof(ICUDRepository<>), typeof(CUDEFRepository<>));
+            // Dependencies injection for service
+            services.AddTransient<IPostService, PostService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ITagService, TagService>();
+            services.AddTransient<ICommentService, CommentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

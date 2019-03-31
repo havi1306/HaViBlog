@@ -1,0 +1,9 @@
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Utilities\bin\Debug\netcoreapp2.2\HaViBlog.Utilities.deps.json
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Utilities\bin\Debug\netcoreapp2.2\HaViBlog.Utilities.dll
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Utilities\bin\Debug\netcoreapp2.2\HaViBlog.Utilities.pdb
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Utilities\obj\Debug\netcoreapp2.2\HaViBlog.Utilities.csprojAssemblyReference.cache
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Utilities\obj\Debug\netcoreapp2.2\HaViBlog.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Utilities\obj\Debug\netcoreapp2.2\HaViBlog.Utilities.AssemblyInfoInputs.cache
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Utilities\obj\Debug\netcoreapp2.2\HaViBlog.Utilities.AssemblyInfo.cs
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Utilities\obj\Debug\netcoreapp2.2\HaViBlog.Utilities.dll
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Utilities\obj\Debug\netcoreapp2.2\HaViBlog.Utilities.pdb
