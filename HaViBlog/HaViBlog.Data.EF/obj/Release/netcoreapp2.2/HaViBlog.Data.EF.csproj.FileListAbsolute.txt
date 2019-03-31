@@ -1,0 +1,12 @@
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\bin\Release\netcoreapp2.2\HaViBlog.Data.EF.deps.json
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\bin\Release\netcoreapp2.2\HaViBlog.Data.EF.dll
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\bin\Release\netcoreapp2.2\HaViBlog.Data.EF.pdb
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\bin\Release\netcoreapp2.2\HaViBlog.Infrastructure.dll
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\bin\Release\netcoreapp2.2\HaViBlog.Infrastructure.pdb
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\obj\Release\netcoreapp2.2\HaViBlog.Data.EF.csprojAssemblyReference.cache
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\obj\Release\netcoreapp2.2\HaViBlog.Data.EF.csproj.CoreCompileInputs.cache
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\obj\Release\netcoreapp2.2\HaViBlog.Data.EF.AssemblyInfoInputs.cache
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\obj\Release\netcoreapp2.2\HaViBlog.Data.EF.AssemblyInfo.cs
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\obj\Release\netcoreapp2.2\HaViBlog.Data.EF.csproj.CopyComplete
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\obj\Release\netcoreapp2.2\HaViBlog.Data.EF.dll
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Data.EF\obj\Release\netcoreapp2.2\HaViBlog.Data.EF.pdb

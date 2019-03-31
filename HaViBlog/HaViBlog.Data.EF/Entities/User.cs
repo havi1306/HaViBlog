@@ -1,4 +1,5 @@
 ﻿using HaViBlog.Infrastructure.DomainEntity;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -35,8 +36,8 @@ namespace HaViBlog.Data.EF.Entities
         public byte? IsAdmin { get; set; }
         public byte? Allowed { get; set; }
 
-        //public ICollection<UserRole> UserRoles { get; set; }
-        //public ICollection<Post> Posts { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<Post> Posts { get; set; }
 
         public User()
         {

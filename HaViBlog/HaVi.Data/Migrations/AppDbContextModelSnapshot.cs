@@ -19,6 +19,19 @@ namespace HaViBlog.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("HaViBlog.Data.EF.Entities.BusinessRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BusinessRoleName")
+                        .HasColumnType("varchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BusinessRole");
+                });
+
             modelBuilder.Entity("HaViBlog.Data.EF.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -67,7 +80,7 @@ namespace HaViBlog.Data.Migrations
 
                     b.Property<byte?>("Report");
 
-                    b.Property<bool>("Status");
+                    b.Property<bool?>("Status");
 
                     b.HasKey("Id");
 
@@ -82,7 +95,8 @@ namespace HaViBlog.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Alias");
+                    b.Property<string>("Alias")
+                        .HasMaxLength(256);
 
                     b.Property<string>("Content")
                         .HasColumnType("ntext");
@@ -92,20 +106,19 @@ namespace HaViBlog.Data.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(500);
 
-                    b.Property<byte>("Status");
+                    b.Property<byte?>("Status");
 
                     b.Property<string>("Thumbnail")
                         .HasMaxLength(256);
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasMaxLength(500);
 
                     b.Property<DateTime?>("UpdateDate");
 
                     b.Property<int>("UserId");
 
-                    b.Property<int>("ViewCount");
+                    b.Property<int?>("ViewCount");
 
                     b.HasKey("Id");
 
@@ -150,6 +163,25 @@ namespace HaViBlog.Data.Migrations
                     b.HasIndex("TagId");
 
                     b.ToTable("PostTag");
+                });
+
+            modelBuilder.Entity("HaViBlog.Data.EF.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BusinessRoleId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("RoleName");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessRoleId");
+
+                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("HaViBlog.Data.EF.Entities.Tag", b =>
@@ -205,10 +237,23 @@ namespace HaViBlog.Data.Migrations
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("HaViBlog.Data.EF.Entities.UserRole", b =>
+                {
+                    b.Property<int>("UserId");
+
+                    b.Property<int>("RoleId");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRole");
+                });
+
             modelBuilder.Entity("HaViBlog.Data.EF.Entities.Comment", b =>
                 {
                     b.HasOne("HaViBlog.Data.EF.Entities.Post", "Post")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -216,7 +261,7 @@ namespace HaViBlog.Data.Migrations
             modelBuilder.Entity("HaViBlog.Data.EF.Entities.Post", b =>
                 {
                     b.HasOne("HaViBlog.Data.EF.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("Posts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -229,7 +274,7 @@ namespace HaViBlog.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("HaViBlog.Data.EF.Entities.Post", "Post")
-                        .WithMany()
+                        .WithMany("PostCategories")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -237,13 +282,34 @@ namespace HaViBlog.Data.Migrations
             modelBuilder.Entity("HaViBlog.Data.EF.Entities.PostTag", b =>
                 {
                     b.HasOne("HaViBlog.Data.EF.Entities.Post", "Post")
-                        .WithMany()
+                        .WithMany("PostTag")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("HaViBlog.Data.EF.Entities.Tag", "Tag")
                         .WithMany("PostTag")
                         .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HaViBlog.Data.EF.Entities.Role", b =>
+                {
+                    b.HasOne("HaViBlog.Data.EF.Entities.BusinessRole", "BusinessRole")
+                        .WithMany("Roles")
+                        .HasForeignKey("BusinessRoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("HaViBlog.Data.EF.Entities.UserRole", b =>
+                {
+                    b.HasOne("HaViBlog.Data.EF.Entities.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HaViBlog.Data.EF.Entities.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

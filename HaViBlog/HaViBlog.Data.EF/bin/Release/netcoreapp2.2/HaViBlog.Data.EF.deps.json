@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "HaViBlog.Data.EF/1.0.0": {
+        "dependencies": {
+          "HaViBlog.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "HaViBlog.Data.EF.dll": {}
+        }
+      },
+      "HaViBlog.Infrastructure/1.0.0": {
+        "runtime": {
+          "HaViBlog.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HaViBlog.Data.EF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HaViBlog.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

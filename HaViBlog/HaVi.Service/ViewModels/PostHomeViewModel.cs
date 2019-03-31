@@ -10,7 +10,7 @@ namespace HaViBlog.Service.ViewModels
         public string Thumbnail { get; set; } = "~/img/blog-post-1.jpeg";
         public DateTime CreateDate { get; set; }
         public string Alias { get; set; }
-        public int ViewCount { get; set; }
+        public int? ViewCount { get; set; }
         // 2 thuoc tinh user
         public string ImageAvatar { get; set; }
         public string UserName { get; set; }

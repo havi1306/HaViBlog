@@ -15,6 +15,7 @@ namespace HaViBlog.Service.ServicesImplementation
     public class PostService : IPostService
     {
         private IReadRepository<Post> _postRepository;
+        private ICUDRepository<Post> _postCUDRepository;
         private IReadRepository<Tag> _tagRepository;
         private IReadRepository<PostTag> _postTagRepository;
         private IReadRepository<PostCategory> _postCategoryRepository;
@@ -27,6 +28,7 @@ namespace HaViBlog.Service.ServicesImplementation
 
         public PostService(IReadRepository<Post> postRepository, 
                             IReadRepository<Tag> tagRepository,
+                            ICUDRepository<Post> postCUDRepository,
                          IReadRepository<PostTag> postTagRepository,
                          IReadRepository<PostCategory> postCategoryRepository,
                          IReadRepository<Category> categoryRepository,
@@ -35,6 +37,7 @@ namespace HaViBlog.Service.ServicesImplementation
                          IUnitOfWork unitOfWork)
         {
             _postRepository = postRepository;
+            _postCUDRepository = postCUDRepository;
             _tagRepository = tagRepository;
             _postTagRepository = postTagRepository;
             _postCategoryRepository = postCategoryRepository;
@@ -44,29 +47,9 @@ namespace HaViBlog.Service.ServicesImplementation
             _commentRepository = commentRepository;
         }
 
-        public IList<PostHomeViewModel> GetAll()
+        public IList<PostViewModel> GetAll()
         {
-            // get ra list post
-            var listpost = _postRepository.FindAll();
-            var listUser = _userRepository.FindAll();
-
-            var listUserPost = from p in listpost
-                               join u in listUser
-                               on p.UserId equals u.Id
-                               select new PostHomeViewModel
-                               {
-                                   Id = p.Id,
-                                   Title = p.Title,
-                                   Description = p.Description,
-                                   Thumbnail = p.Thumbnail,
-                                   CreateDate = p.CreateDate,
-                                   Alias = p.Alias,
-                                   ViewCount = p.ViewCount,
-                                   UserName = u.UserName,
-                                   ImageAvatar = u.Avatar,
-                                   DateCreateAgo = DateFormat.GetPrettyDateAgo(p.CreateDate)
-                               };
-            return listUserPost.OrderByDescending(x => x.CreateDate).ToList();
+            return _postRepository.FindAll(x => x.Id).ProjectTo<PostViewModel>().ToList();
         }
 
         public PagedResult<PostHomeViewModel> GetAllPaging(string keyword, int page, int pageSize)
@@ -122,6 +105,8 @@ namespace HaViBlog.Service.ServicesImplementation
         {
             // lay chi tiet post theo id
             var post = GetById(id);
+            // lay user theo post
+            var user = _userRepository.FindSingle(s => s.Id == post.UserId);
             // lay danh sach tag theo post id
             var tags = from t in _tagRepository.FindAll()
                        join pt in _postTagRepository.FindAll(s => s.PostId == id)
@@ -164,11 +149,15 @@ namespace HaViBlog.Service.ServicesImplementation
 
             var postViewModel = new DetailPostViewModel
             {
+                PostId=post.Id,
                 Title = post.Title,
                 Content = post.Content,
                 Tags = tags,
                 Categories = categories,
+                Avatar = user.Avatar,
+                Author = user.FirstName,
                 Comments = comments.OrderByDescending(s => s.CreateDate),
+                DateAgo= DateFormat.GetPrettyDateAgo(post.CreateDate),
                 PreviousPost = previousPost,
                 NextPost = nextPost
             };
@@ -183,6 +172,31 @@ namespace HaViBlog.Service.ServicesImplementation
         public PostViewModel GetById(int id)
         {
             return Mapper.Map<Post, PostViewModel>(_postRepository.FindSingle(s=>s.Id==id));
+        }
+
+        public PostViewModel Add(PostViewModel postvm)
+        {
+            var post = Mapper.Map<PostViewModel, Post>(postvm);
+            _postCUDRepository.Add(post);
+            return postvm;
+        }
+
+        public void Update(PostViewModel postVm)
+        {
+            var post = Mapper.Map<PostViewModel, Post>(postVm);
+            _postCUDRepository.Update(post);
+        }
+
+        public void Delete(int id)
+        {
+
+            var post = _postRepository.FindSingle(s => s.Id == id);
+            _postCUDRepository.Remove(post);
+        }
+
+        public void Save()
+        {
+            _unitOfWork.Commit();
         }
     }
 }

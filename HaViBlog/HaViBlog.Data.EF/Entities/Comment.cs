@@ -23,10 +23,15 @@ namespace HaViBlog.Data.EF.Entities
         [DataType(DataType.DateTime)]
         public DateTime CreateDate { get; set; }
 
-        public bool Status { get; set; }
+        public bool? Status { get; set; }
         public byte? Report { get; set; }
         public int PostId { get; set; }
 
         public Post Post { get; set; }
+
+        public Comment()
+        {
+
+        }
     }
 }

@@ -28,6 +28,6 @@ namespace HaViBlog.Service.ViewModels
         public byte Status { get; set; }
         public string Alias { get; set; }
         public int UserId { get; set; }
-        public int ViewCount { get; set; }
+        public int? ViewCount { get; set; }
     }
 }

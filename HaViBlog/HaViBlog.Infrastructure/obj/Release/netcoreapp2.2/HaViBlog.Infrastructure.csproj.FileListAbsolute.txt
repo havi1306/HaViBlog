@@ -1,0 +1,9 @@
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Infrastructure\bin\Release\netcoreapp2.2\HaViBlog.Infrastructure.deps.json
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Infrastructure\bin\Release\netcoreapp2.2\HaViBlog.Infrastructure.dll
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Infrastructure\bin\Release\netcoreapp2.2\HaViBlog.Infrastructure.pdb
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Infrastructure\obj\Release\netcoreapp2.2\HaViBlog.Infrastructure.csprojAssemblyReference.cache
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Infrastructure\obj\Release\netcoreapp2.2\HaViBlog.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Infrastructure\obj\Release\netcoreapp2.2\HaViBlog.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Infrastructure\obj\Release\netcoreapp2.2\HaViBlog.Infrastructure.AssemblyInfo.cs
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Infrastructure\obj\Release\netcoreapp2.2\HaViBlog.Infrastructure.dll
+C:\Users\viha1306\Desktop\HaViBlog\HaViBlog\HaViBlog\HaViBlog.Infrastructure\obj\Release\netcoreapp2.2\HaViBlog.Infrastructure.pdb

@@ -11,9 +11,13 @@ namespace HaViBlog.Controllers
         private IPostService postService;
         private ICommentService commentService;
 
-        public HomeController(IPostService _postService)
+        public HomeController(IPostService _postService
+            , ICommentService _commentService
+            )
         {
             postService = _postService;
+            commentService=_commentService;
+
         }
 
         public IActionResult Index(int page = 1)

@@ -11,6 +11,10 @@ namespace HaViBlog.Service.AutoMapper
             CreateMap<Post, PostViewModel>();
             CreateMap<Category, CategoryViewModel>();
             CreateMap<Comment, CommentViewModel>();
+            CreateMap<User, UserViewModel>();
+            CreateMap<BusinessRole, BusinessRoleViewModel>();
+            CreateMap<Role, RoleViewModel>();
+            CreateMap<UserRole, UserRoleViewModel>();
         }
     }
 }

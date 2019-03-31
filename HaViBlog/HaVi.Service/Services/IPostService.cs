@@ -8,7 +8,7 @@ namespace HaViBlog.Service.Services
     {
         List<PostViewModel> GetLatest();
 
-        IList<PostHomeViewModel> GetAll();
+        IList<PostViewModel> GetAll();
 
         PagedResult<PostHomeViewModel> GetAllPaging(string keyword, int page, int pageSize);
 
@@ -16,5 +16,13 @@ namespace HaViBlog.Service.Services
         PostViewModel GetById(int id);
         // detail post
         DetailPostViewModel GetDetail(int id);
+
+        PostViewModel Add(PostViewModel post);
+
+        void Update(PostViewModel post);
+
+        void Delete(int id);
+
+        void Save();
     }
 }
